@@ -1,18 +1,18 @@
 import express from "express";
 import dotenv from "dotenv"
 import mongoose from "mongoose";
-import noteRouter from "./routes/wishRoute.js";
+import wishRouter from "./routes/wishRoute.js";
 
 
 dotenv.config();
 
 // Sever Setup & Configuration
 const app = express();
-const PORT = process.env.PORT || 5100;
+const PORT = process.env.PORT || 5200;
 
 // Routes
 app.use(express.json());
-app.use("/api/wish", wishRouter);
+app.use("/api/wishes", wishRouter);
 
 // MongoDb Setup
 const MONGO_URL = process.env.MONGO_URI;

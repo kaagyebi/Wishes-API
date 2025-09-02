@@ -3,19 +3,19 @@ import { createWish, deleteWish, getAllWishes, getWishById, updateWish } from ".
 
 const wishRouter = Router();
 
-// Create a new note
+// Create a new wish
 wishRouter.post("/", createWish);
 
-// Get all notes
+// Get all wishes
 wishRouter.get("/", getAllWishes);
 
-// Get a specific note by ID
+// Get a specific wishes by ID
 wishRouter.get("/:id", getWishById);
 
-// Update a note by ID
+// Update a wish by ID
 wishRouter.patch("/:id", updateWish);
 
-// Delete a note by ID
+// Delete a wish by ID
 wishRouter.delete("/:id", deleteWish);
 
 export default wishRouter;

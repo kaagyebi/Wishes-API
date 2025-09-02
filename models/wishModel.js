@@ -10,9 +10,9 @@ const wishSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: {
+  eventIdentifier: {
     type:String,
   }
 }, {timestamps: true,});
 
-export const Notes = model("Wish", wishSchema);
+export const Wishes = model("Wishes", wishSchema);

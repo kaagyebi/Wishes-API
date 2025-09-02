@@ -1,13 +1,13 @@
-import {Wishes} from "../models/wishesModel.js";
+import {Wishes} from "../models/wishModel.js";
 
 // Create a new note
 export const createWish = async (req, res) => {
     try {
        
-        const { senderName, message, eventIdentifier } = req.body;
+        const { from, wish, eventIdentifier } = req.body;
 
         // Use the new Wishes model
-        const newWish = new Wishes({ senderName, message, eventIdentifier });
+        const newWish = new Wishes({ from, wish, eventIdentifier });
         await newWish.save();
         res.status(201).json(newWish);
     } catch (error) {
