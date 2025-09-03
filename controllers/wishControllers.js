@@ -1,12 +1,12 @@
 import {Wishes} from "../models/wishModel.js";
 
-// Create a new note
+// Create a new wish
 export const createWish = async (req, res) => {
     try {
        
         const { from, wish, eventIdentifier } = req.body;
 
-        // Use the new Wishes model
+        // Use the Wishes model
         const newWish = new Wishes({ from, wish, eventIdentifier });
         await newWish.save();
         res.status(201).json(newWish);
@@ -15,7 +15,7 @@ export const createWish = async (req, res) => {
     }
 };
 
-// Update an existing note
+// Update an existing wish
 export const updateWish = async (req, res) => {
     try {
         const { id } = req.params;
@@ -29,7 +29,7 @@ export const updateWish = async (req, res) => {
     }
 };
 
-// Delete an existing note
+// Delete an existing wish
 export const deleteWish = async (req, res) => {
     try {
         const { id } = req.params;
@@ -37,13 +37,13 @@ export const deleteWish = async (req, res) => {
         if (!deletedNote) {
             return res.status(404).json({ message: "Note not found" });
         }
-        res.status(200).json({ message: "Note deleted successfully" });
+        res.status(200).json({ message: "Wish deleted successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-// Get all notes
+// Get all wishes
 export const getAllWishes = async (req, res) => {
     try {
         const notes = await Wishes.find();
@@ -53,12 +53,12 @@ export const getAllWishes = async (req, res) => {
     }
 };
 
-// Get a specific note by ID
+// Get a specific wish by ID
 export const getWishById = async (req, res) => {
     try {
         const { id } = req.params;
         const note = await Wishes.findById(id);
-        if (!note) {return res.status(404).json({ message: "Note not found" });
+        if (!note) {return res.status(404).json({ message: "Wish not found" });
         } res.status(200).json(note);
     } catch (error) {
         res.status(500).json({ message: error.message });
